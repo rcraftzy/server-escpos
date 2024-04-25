@@ -9,6 +9,7 @@
     "build": "bun build --compile ./src/server.ts --outfile ./run"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.1",
     "@types/bun": "latest"
   },
   "peerDependencies": {

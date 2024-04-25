@@ -3,8 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run --watch src/server.ts",
-    "start": "bun run src/server.ts",
+    "env:dev": "NODE_ENV=development bun run --watch src/server.ts",
+    "env:production": "NODE_ENV=production bun run src/server.ts",
+    "env:test": "NODE_ENV=test bun run src/server.ts",
     "build": "bun build --compile ./src/server.ts --outfile ./run"
   },
   "devDependencies": {

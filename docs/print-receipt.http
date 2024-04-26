@@ -1,7 +1,14 @@
-GET http://localhost:3000/api/v1/
+### Get home api
+GET http://localhost:{{PORT}}
+
+### Get api
+GET http://localhost:{{PORT}}/api
+
+### Get status conection to printer
+GET http://localhost:{{PORT}}/api/print/status
 
 ### Post print receipt
-POST http://localhost:3000/api/v1/print
+POST http://localhost:{{PORT}}/api/print
 Content-Type: application/json
 
 {

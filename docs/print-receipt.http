@@ -5,14 +5,14 @@ GET http://localhost:{{PORT}}
 GET http://localhost:{{PORT}}/api
 
 ### Get status conection to printer
-GET http://localhost:{{PORT}}/api/print/status
+GET http://localhost:3000/api/print/status
 
 ### Post print receipt
-POST http://localhost:{{PORT}}/api/print
+POST http://localhost:3000/api/print
 Content-Type: application/json
 
 {
-  "baseOrderURL": "",
+  "baseOrderURL": "https://orders.teamcellmania.com",
     "branch": "MATOVELLE(AZOGUES)",
     "contact": "1234567890",
     "customer": "1234567890",
@@ -25,10 +25,18 @@ Content-Type: application/json
     "pattern": "",
     "printerIp": "192.168.0.1",
     "printServer": "192.168.0.100",
-    "receivedAt": "",
+    "receivedAt": "09/04/2024, 11:23",
     "received_by": "VIVI PARAMO",
     "received_by_phone": "1234567890",
     "sketch": "",
     "imei": "9204102431243",
-    "isWednesday": true
+    "isWednesday": false 
+}
+
+### Post print ticket values
+POST http://localhost:3000/api/print
+Content-Type: application/json
+
+{
+    "valor": "100"
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <align mode="center">
+    <bold>
+      <text-line size="1:0">TEAM CELLMANIA</text-line>
+    </bold>
+  </align>
+
+  <underline />
+  <line-feed />
+
+  <align
+    mode="center">
+    <qrcode ecl="L" size="5">01909db2-4722-7372-a027-0b5e16762cc1</qrcode>
+  </align>
+
+  <underline />
+  <line-feed />
+
+  <align mode="center">
+    <text-line size="1:0">Vale por ${{valor}}</text-line>
+  </align>
+  <underline />
+  <line-feed />
+  <align mode="center">
+    <bold>
+      <text-line size="1:0">Gladys Faican</text-line>
+    </bold>
+  </align>
+
+  <paper-cut />
+
+</document>

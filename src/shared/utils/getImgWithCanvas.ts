@@ -82,13 +82,14 @@ export const generateImgWithCanvas = ({ sketch = [] }: Props) => {
     loadImage(path.join(currentPath, "public/iphone.png"))
       .then((image) => {
         ctx.drawImage(image, 0, 0, 300, 241);
-        base64toImg({ base64Img: canvas.toDataURL() });
-        resolve(true);
+        // base64toImg({ base64Img: canvas.toDataURL() });
+        resolve(canvas.toDataURL());
+        return canvas.toDataURL()
       })
       .catch((err) => {
         console.log("error: ", err);
         reject(false);
       });
   });
-  return customPromise;
+  return customPromise
 };

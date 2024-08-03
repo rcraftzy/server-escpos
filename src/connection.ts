@@ -6,18 +6,21 @@ const connectToPrinter = (
 	host: string,
 	port: number,
 	onData?: (device: net.Socket) => void
-): Promise<void> => {
+): Promise<unknown> => {
 	return new Promise((res, rej) => {
-		const device = new net.Socket()
+    const device = new net.Socket()
+
 		device.on('close', () => {
-			device.destroy()
-			res()
+			if (device) {
+				device.destroy()
+			}
+			res(false)
 		})
 		device.connect(port, host, () => {
 			if (onData) onData(device)
-			device?.emit('close')
-		})
-		device.on('error', (error) => {
+			device.emit('close')
+    })
+    device.on('error', (error) => {
 			console.error('Error al conectarse con la impresora térmica:', error)
 			rej(error)
 		})
@@ -25,11 +28,11 @@ const connectToPrinter = (
 }
 
 export const sendDataToPrinter = async (input: any, template: string) => {
-	const buffer = Uint8Array.from(EscPos.getBufferFromTemplate(template, input))
+	const buffer = EscPos.getBufferFromTemplate(template, input)
 	try {
-		await connectToPrinter(PRINTER_HOST, PRINTER_PORT, (device) => {
+		await connectToPrinter(PRINTER_HOST, PRINTER_PORT, (device) =>
 			device.write(buffer)
-		})
+		)
 	} catch (err) {
 		console.log(err)
 	}
